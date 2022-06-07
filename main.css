@@ -2,7 +2,7 @@
 
 
 body {
-    background-image: url(.media/abstract-luxury-.jpg);
+    background-image: url(./media/abstract-luxury-.jpg);
     background-size: auto;
 
     font-size: 18px;
@@ -13,7 +13,7 @@ body {
 }
 
 .card {
-    background-image: url(.media/old-black-background-.jpg);
+    background-image: url(./media/old-black-background-.jpg);
     background-size: auto;
     max-width: 970px;
     min-width: 750px;
