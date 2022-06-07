@@ -13,7 +13,8 @@ body {
 }
 
 .card {
-    background-image: url(/main/media/old-black-background-.jpg);
+/*     background-image: url(/main/media/old-black-background-.jpg); */
+    background-color: #140d14;
     background-size: auto;
     max-width: 970px;
     min-width: 750px;
