@@ -1,0 +1,70 @@
+body {
+
+    font-size: 18px;
+    font-weight: normal;
+    font-family: 'Roboto', sans-serif;
+    color: rgb(18, 194, 170);
+
+}
+
+.allInput {
+    display: flex;
+    justify-content: space-evenly
+}
+
+.calcInput {
+    width: 130px;
+    height: 50px;
+    border-color: black;
+}
+
+.output {
+    width: 290px;
+    height: 200px;
+    justify-content: center;
+}
+
+.button {
+    height: 35px;
+    width: 100px;
+}
+
+.buttoncase1 {
+    display: flex;
+    justify-content: space-evenly
+}
+
+
+
+.wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border: solid;
+    height: 1000px;
+    width: 700px;
+    display: flex;
+    justify-content: space-evenly
+}
+
+.calc1 {
+
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border: solid;
+    height: 350px;
+    width: 300px;
+    text-align: center;
+    margin: 10px;
+}
+
+.calc2 {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border: solid;
+    height: 200px;
+    width: 300px;
+}

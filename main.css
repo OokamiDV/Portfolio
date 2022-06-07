@@ -1,0 +1,283 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap');
+
+
+body {
+    background-image: url(/media/abstract-luxury-.jpg);
+    background-size: auto;
+
+    font-size: 18px;
+    font-weight: normal;
+    font-family: 'Roboto', sans-serif;
+    color: rgb(170, 170, 170);
+
+}
+
+.card {
+    background-image: url(/media/old-black-background-.jpg);
+    background-size: auto;
+    max-width: 970px;
+    min-width: 750px;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: -1px 2px 11px 9px rgba(17, 4, 29, 0.932);
+    /* position: relative; */
+    margin: 0px auto;
+}
+
+.wrapper {
+    min-height: 100%;
+    /* overflow: hidden; */
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+.container {
+    max-width: 950px;
+    margin: 0px auto;
+}
+
+.content {
+    flex: 1 1 auto;
+}
+
+.skillBarDiv {
+    flex: 1 1 auto;
+    height: 453px;
+
+}
+
+.info {
+    padding: 2px 0;
+}
+
+.infoRowTitle {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    list-style-type: none;
+}
+
+.infoRow {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.mainInfo {
+    display: flex;
+    list-style-type: none;
+    padding-left: 20px;
+    max-width: 375px;
+}
+
+.contactText {
+    min-width: 170px;
+}
+
+.header {
+    display: flex;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+}
+
+.headers {
+    text-align: center;
+}
+
+/* .footer {
+
+} */
+
+.footerRow {
+    display: flex;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    text-align: center;
+    font-size: 21px;
+    font-weight: 400;
+    max-width: 400px;
+}
+
+.icoTelegram {
+    border-radius: 50px;
+
+}
+
+.icoGit {
+    filter: invert(100%);
+}
+
+.icoTel {
+    border-radius: 50px;
+    filter: invert(100%);
+    max-width: 50px;
+    z-index: 2;
+
+}
+
+#numTel {
+    font-size: 25px;
+
+}
+
+#icoBut {
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
+.titleText {
+    font-size: 25px;
+}
+
+.avatar {
+    max-width: 270px;
+    max-height: 270px;
+    border: 3px;
+    border-radius: 20px;
+    border-color: rgb(207, 182, 151);
+    box-shadow: 0px 0px 14px 2px rgb(201, 192, 221);
+    margin: 30px;
+    position: relative;
+    top: 40px;
+}
+
+.skillDiagrams {
+    max-width: 370px;
+}
+
+.infoBody {
+    padding-left: 0px;
+}
+
+/* .footerText {
+
+} */
+
+/* @media (max-width:1200px){
+    .MainContent{
+        max-width: 970px;
+    }
+} */
+@media (max-width:950px) {
+    .card {
+        max-width: 750px;
+    }
+}
+
+@media (max-width:740px) {
+    .card {
+        max-width: 480px;
+    }
+}
+
+@media (max-width:950px) {
+    .mainContent {
+        max-width: 750px;
+    }
+}
+
+@media (max-width:740px) {
+    .mainContent {
+        max-width: 480px;
+    }
+}
+
+
+
+
+.skillHtml1 {
+    position: relative;
+    z-index: 1;
+    border-radius: 10px;
+    max-height: 5px;
+
+}
+
+.skillHtml2 {
+    position: relative;
+    bottom: 17px;
+    z-index: 2;
+    right: 60px;
+    border-radius: 10px;
+    max-height: 6px;
+}
+
+.skillCss1 {
+    position: relative;
+    z-index: 1;
+    border-radius: 10px;
+    max-height: 5px;
+}
+
+.skillCss2 {
+    position: relative;
+    bottom: 17px;
+    z-index: 2;
+    right: 96px;
+    border-radius: 10px;
+    max-height: 6px;
+}
+
+.skillJs1 {
+    position: relative;
+    z-index: 1;
+    border-radius: 10px;
+    max-height: 5px;
+}
+
+.skillJs2 {
+    position: relative;
+    bottom: 17px;
+    z-index: 2;
+    right: 115px;
+    border-radius: 10px;
+    max-height: 6px;
+}
+
+.projects {
+    font-family: 'Roboto', sans-serif;
+    color: rgb(170, 170, 170);
+    text-align: center;
+
+}
+
+.noLineA {
+    text-decoration: none;
+}
+
+
+/* .block0 {
+    position: absolute;
+    left: 50px
+}
+
+.block1 {
+    border:solid;
+    max-width: 400px;
+    max-height: 200px;
+    border-radius: 20px;
+    border-color: rgb(201, 192, 221);
+    padding: 20px;
+    text-align:center;
+    position: absolute;
+    left: 460px;
+    top:15px;
+    box-shadow: 0px 0px 14px 2px rgb(201, 192, 221);
+    
+} */
+
+/* .mainContent {
+    padding: 10px;
+    margin: 10px;
+    position: relative;
+    
+
+} */
