@@ -441,7 +441,7 @@ let eatY = 0
 let eatXandY = undefined
 
 // начальная скорость предвижения змейки
-let tempSnake = 500
+let tempSnake = 400
 
 // съедание фруктов
 function snakeEat() {
