@@ -1,19 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap');
-
-
 body {
-    background-image: url(/media/abstract-luxury-.jpg);
+    background-image: url('./media/abstract-luxury-.jpg');
     background-size: auto;
-
     font-size: 18px;
     font-weight: normal;
     font-family: 'Roboto', sans-serif;
     color: rgb(170, 170, 170);
-
 }
 
 .card {
-    background-image: url(/media/old-black-background-.jpg);
+    background-image: url('./media/old-black-background-.jpg');
     background-size: auto;
     max-width: 970px;
     min-width: 750px;
@@ -27,10 +23,8 @@ body {
 .wrapper {
     min-height: 100%;
     /* overflow: hidden; */
-
     display: flex;
     flex-direction: column;
-
 }
 
 .container {
@@ -45,7 +39,6 @@ body {
 .skillBarDiv {
     flex: 1 1 auto;
     height: 453px;
-
 }
 
 .info {
@@ -87,6 +80,7 @@ body {
     text-align: center;
 }
 
+
 /* .footer {
 
 } */
@@ -107,7 +101,6 @@ body {
 
 .icoTelegram {
     border-radius: 50px;
-
 }
 
 .icoGit {
@@ -119,19 +112,16 @@ body {
     filter: invert(100%);
     max-width: 50px;
     z-index: 2;
-
 }
 
 #numTel {
     font-size: 25px;
-
 }
 
 #icoBut {
     border-radius: 10px;
     cursor: pointer;
 }
-
 
 .titleText {
     font-size: 25px;
@@ -157,15 +147,18 @@ body {
     padding-left: 0px;
 }
 
+
 /* .footerText {
 
 } */
+
 
 /* @media (max-width:1200px){
     .MainContent{
         max-width: 970px;
     }
 } */
+
 @media (max-width:950px) {
     .card {
         max-width: 750px;
@@ -189,16 +182,12 @@ body {
         max-width: 480px;
     }
 }
-
-
-
 
 .skillHtml1 {
     position: relative;
     z-index: 1;
     border-radius: 10px;
     max-height: 5px;
-
 }
 
 .skillHtml2 {
@@ -246,7 +235,6 @@ body {
     font-family: 'Roboto', sans-serif;
     color: rgb(170, 170, 170);
     text-align: center;
-
 }
 
 .noLineA {
@@ -273,6 +261,7 @@ body {
     box-shadow: 0px 0px 14px 2px rgb(201, 192, 221);
     
 } */
+
 
 /* .mainContent {
     padding: 10px;
