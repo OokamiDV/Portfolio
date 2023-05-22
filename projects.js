@@ -18,7 +18,7 @@ function rectPerim(x, y) {
     return result
 }
 
-input1.oninput = function () {
+input1.oninput = function() {
     x = input1.value;
     if (x > 0) {
         input1.style.borderColor = "black"
@@ -32,7 +32,7 @@ input1.oninput = function () {
         input1.style.borderColor = "red"
     }
 }
-input2.oninput = function () {
+input2.oninput = function() {
     y = input2.value;
     if (y > 0) {
         input2.style.borderColor = "black"
@@ -47,27 +47,14 @@ input2.oninput = function () {
     }
 }
 
-// игра
+// snake
+let snakeDiv = document.getElementById('snakeDiv')
+snakeDiv.onclick = function() {
+    window.open('./snake2/index.html')
+}
 
-// const canvas = document.getElementById('game');
-// const context = canvas.getContext('2d');
-
-// const grid = 32
-
-// var tetrominoSequence = [];
-
-// var playfield = []
-
-// for (let row = -2; row < 20; row++) {
-//     playfield[row] = [];
-
-//     for (let col = 0; col < 10; col++) {
-//         playfield[row][col] = 0;
-
-//     }
-
-// }
-
-
-
-// console.log(playfield)
+// rabbits
+let rabbitsGameDiv = document.getElementById('rabbitsGame')
+rabbitsGameDiv.onclick = function() {
+    window.open('./rabbitsGame2/index.html')
+}
