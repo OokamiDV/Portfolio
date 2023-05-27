@@ -49,12 +49,54 @@ input2.oninput = function() {
 
 // snake
 let snakeDiv = document.getElementById('snakeDiv')
+let snakeMove = document.createElement('video')
+snakeMove.src = './snake2/gameDev/textures/snakeMove.mp4'
+snakeMove.style.position = 'relative'
+snakeMove.hidden = true
+snakeMove.style.width = '335px'
+snakeMove.style.right = '20px'
+snakeMove.style.bottom = '60px'
+snakeMove.volume = '0.20'
+snakeDiv.append(snakeMove)
+
 snakeDiv.onclick = function() {
     window.open('./snake2/index.html')
 }
 
+snakeDiv.onmouseover = function() {
+    snakeDiv.style.cursor = 'pointer'
+    snakeMove.play()
+    snakeMove.hidden = false
+}
+
+snakeDiv.onmouseout = function() {
+    snakeMove.pause()
+    snakeMove.hidden = true
+}
+
 // rabbits
 let rabbitsGameDiv = document.getElementById('rabbitsGame')
+let rabbitsGameMove = document.createElement('video')
+rabbitsGameMove.src = './rabbitsGame2/rabbitsMove.mp4'
+rabbitsGameMove.style.position = 'relative'
+rabbitsGameMove.hidden = true
+rabbitsGameMove.style.width = '360px'
+rabbitsGameMove.style.right = '27px'
+rabbitsGameMove.style.bottom = '59px'
+rabbitsGameMove.volume = '0.20'
+rabbitsGameDiv.append(rabbitsGameMove)
+
 rabbitsGameDiv.onclick = function() {
     window.open('./rabbitsGame2/index.html')
+}
+
+rabbitsGameDiv.onmouseover = function() {
+    rabbitsGameDiv.style.cursor = 'pointer'
+    rabbitsGameMove.play()
+    rabbitsGameMove.hidden = false
+}
+
+rabbitsGameDiv.onmouseout = function() {
+    rabbitsGameMove.pause()
+    rabbitsGameMove.hidden = true
 }

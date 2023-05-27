@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap');
 body {
+    background-image: url('./media/abstract-luxury-.jpg');
+    background-size: auto;
     font-size: 18px;
     font-weight: normal;
     font-family: 'Roboto', sans-serif;
-    color: rgb(18, 194, 170);
+    color: rgb(170, 170, 170);
 }
 
 .allInput {
@@ -45,6 +48,12 @@ body {
     flex-wrap: wrap;
     align-content: space-around;
     justify-content: space-evenly;
+    background-image: url('./media/old-black-background-.jpg');
+    background-size: auto;
+    max-width: 970px;
+    min-width: 750px;
+    border-radius: 20px;
+    box-shadow: -1px 2px 11px 9px rgba(17, 4, 29, 0.932);
 }
 
 .calc1 {
@@ -66,4 +75,18 @@ body {
     border: solid;
     height: 200px;
     width: 300px;
+}
+
+#rabbitsGame {
+    background-image: url('./rabbitsGame2/rabbitsPic.png');
+    color: black;
+    font-weight: bold;
+    overflow: hidden;
+}
+
+#snakeDiv {
+    background-image: url('./snake2/gameDev/textures/SnakePic.png');
+    color: black;
+    font-weight: bold;
+    overflow: hidden;
 }

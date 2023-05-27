@@ -22,6 +22,7 @@ arrow.style.height = '20px'
 arrow.style.width = '20px'
 arrow.style.position = 'absolute'
 arrow.style.zIndex = 3
+arrow.style.border = 'none'
 
 let arrow3 = document.createElement('img')
 arrow3.hidden = true
