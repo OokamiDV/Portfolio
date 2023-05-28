@@ -67,11 +67,13 @@ snakeDiv.onmouseover = function() {
     snakeDiv.style.cursor = 'pointer'
     snakeMove.play()
     snakeMove.hidden = false
+    snakeDiv.style.boxShadow = '-1px 2px 11px 9px rgba(212, 174, 233, 0.932)'
 }
 
 snakeDiv.onmouseout = function() {
     snakeMove.pause()
     snakeMove.hidden = true
+    snakeDiv.style.boxShadow = 'none'
 }
 
 // rabbits
@@ -94,9 +96,11 @@ rabbitsGameDiv.onmouseover = function() {
     rabbitsGameDiv.style.cursor = 'pointer'
     rabbitsGameMove.play()
     rabbitsGameMove.hidden = false
+    rabbitsGameDiv.style.boxShadow = '-1px 2px 11px 9px rgba(212, 174, 233, 0.932)'
 }
 
 rabbitsGameDiv.onmouseout = function() {
     rabbitsGameMove.pause()
     rabbitsGameMove.hidden = true
+    rabbitsGameDiv.style.boxShadow = 'none'
 }
