@@ -104,3 +104,22 @@ rabbitsGameDiv.onmouseout = function() {
     rabbitsGameMove.hidden = true
     rabbitsGameDiv.style.boxShadow = 'none'
 }
+
+let jumperDiv = document.getElementById('jumper')
+
+jumperDiv.onclick = function() {
+    window.open('./jumper/index.html')
+}
+
+jumperDiv.onmouseover = function() {
+    jumperDiv.style.cursor = 'pointer'
+        // jumperDiv.play()
+        // jumperDiv.hidden = false
+    jumperDiv.style.boxShadow = '-1px 2px 11px 9px rgba(212, 174, 233, 0.932)'
+}
+
+jumperDiv.onmouseout = function() {
+    // jumperDiv.pause()
+    // jumperDiv.hidden = true
+    jumperDiv.style.boxShadow = 'none'
+}
