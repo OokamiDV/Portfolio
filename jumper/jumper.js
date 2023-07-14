@@ -1,132 +1,128 @@
 "use strict"
 
-let field = {
-    width: 1080,
-    height: 1920,
-    amountCellX: 30,
-    amountCellY: 30,
-    cellWidth: 20,
-    cellHeight: 20,
-    difrGrToSp: 10,
-    maxStepSize: 5,
-    minStepSize: 2,
-}
+class GameField {
+    constructor(width, height, amountCellX, amountCellY, cellHeight, cellWidth, divMain, tableField, ) {
+        this.width = width,
+            this.height = height,
+            this.amountCellX = amountCellX,
+            this.amountCellY = amountCellY,
+            this.cellHeight = cellHeight,
+            this.cellWidth = cellWidth,
+            this.divMain = divMain,
+            this.tableField = tableField
 
-let ground = []
-let groundCoor = []
-let steps = []
-let stepsCoor = []
+        this.divMain = document.createElement('div')
+        this.divMain.style.height = `${height}px`
+        this.divMain.style.width = `${width}px`
+        this.divMain.style.margin = 'auto'
+        this.divMain.className = 'divMain'
+        document.body.append(this.divMain)
 
-let divMain = document.createElement('div')
-divMain.style.height = `${field.height}px`
-divMain.style.width = `${field.width}px`
-divMain.style.margin = 'auto'
-divMain.className = 'divMain'
-document.body.append(divMain)
+        this.tableField = document.createElement('table')
+        this.tableField.className = 'tableField'
+        this.divMain.append(this.tableField)
+    }
+    creat() {
+        for (let i = -1; i < this.amountCellX + 1; i++) {
+            this.tableField[i] = document.createElement('tr')
+            this.tableField.append(this.tableField[i])
+            for (let g = -1; g < this.amountCellY + 1; g++) {
+                this.tableField[i][g] = document.createElement('td')
+                    // tableField[i][g].style.border = 'none'
+                this.tableField[i][g].style.height = `${this.cellHeight}px`
+                this.tableField[i][g].style.width = `${this.cellWidth}px`
+                this.tableField[i].append(this.tableField[i][g])
+                if (i > -1 && i < this.amountCellX && g > -1 && g < this.amountCellY) {
+                    this.tableField[i][g].style.border = 'solid'
+                }
+            }
 
-let tableField = document.createElement('table')
-tableField.className = 'tableField'
-divMain.append(tableField)
-
-
-// Поле отрисовывается от 0 до 29 (если х и н = 30)
-
-for (let i = -1; i < field.amountCellX + 1; i++) {
-    tableField[i] = document.createElement('tr')
-    tableField.append(tableField[i])
-
-    for (let g = -1; g < field.amountCellY + 1; g++) {
-        tableField[i][g] = document.createElement('td')
-        tableField[i][g].style.height = `${field.cellHeight}px`
-        tableField[i][g].style.width = `${field.cellWidth}px`
-        tableField[i].append(tableField[i][g])
-
-        if (i > -1 && i < field.amountCellX && g > -1 && g < field.amountCellY) {
-            tableField[i][g].style.border = 'solid'
-        } else if (i == field.amountCellX && g > -1 && g < field.amountCellY) {
-            tableField[i - 1][g].style.background = 'black'
-            tableField[i - 1][g].spike = true
-            ground.push(tableField[i - 10][g])
-            groundCoor.push([i - 10, g])
         }
+
+        this.tableField[-1][-1].style.background = 'black'
+        this.tableField[-1][30].style.background = 'black'
+        this.tableField[30][-1].style.background = 'black'
+        this.tableField[30][30].style.background = 'black'
+    }
+
+    get tableFieldTab() {
+        return this.tableField
     }
 }
 
-//подсветка краев экрана
-tableField[-1][-1].style.background = 'black'
-tableField[-1][field.amountCellY].style.background = 'black'
-tableField[field.amountCellY][field.amountCellY].style.background = 'black'
-tableField[field.amountCellY][-1].style.background = 'black'
+class Platforme {
+    constructor(minSize, maxSize) {
+        this.minSize = minSize
+        this.maxSize = maxSize
+        this.platformeArr = []
+    }
 
+    creatPlatforme() {
+        this.platformeArr.push([5, 5])
+        this.platformeArr.push([7, 7])
+        return this.platformeArr
+    }
 
-function groundFalls(ground) {
-    for (let i = 0; i < ground.length; i++) {
-        if (groundCoor[i][0] + 2 < field.amountCellX) {
-            ground[i].style.background = 'none'
-            ground[i].ground = false
-            groundCoor[i] = [
-                Number([groundCoor[i][0]]) + 1, [groundCoor[i][1]]
-            ]
-            ground[i] = tableField[groundCoor[i][0]][groundCoor[i][1]]
-            ground[i].style.background = 'green'
-            ground[i].ground = true
-        } else {
-            ground[i].style.background = 'none'
-            ground[i].ground = false
+    get platformeCoor() {
+        return this.platformeArr
+    }
+
+    colorPlatforme(platformeArr, tableField) {
+        for (let i = 0; i < platformeArr.length; i++) {
+            for (let g = 0; g < platformeArr[i].length; g++) {
+                tableField[platformeArr[g][0]][platformeArr[g][1]].style.background = 'black'
+            }
         }
     }
-    return ground
+
+    // movePlatforme(platformeArr, tableField) {
+    //     for (let i = 0; i < platformeArr.length; i++) {
+    //         for (let g = 0; g < platformeArr[i].length; g++) {
+    //             tableField[platformeArr[g][0]][platformeArr[g][1]].style.background = 'black'
+    //         }
+    //     }
+    // }
 }
 
-function stepsFalls(steps) {
-    for (let i = 0; i < steps.length; i++) {
-        for (let g = 0; g < steps[i].length; g++) {
-            steps[i][g] = tableField[stepsCoor[g][0]][stepsCoor[g][1]]
-            steps[i][g].style.background = 'none'
-            steps[i][g] = tableField[stepsCoor[g][0] + 1][stepsCoor[g][1]]
-            steps[i][g].style.background = 'red'
-        }
+class Generator {
+    constructor() {
 
     }
-}
-косяк в координатах ступенек массиве
 
-function creatSteps() {
-    let randomY = Math.floor(Math.random() * field.amountCellY - field.maxStepSize)
-    let randomStepsSize = Math.floor(Math.random() * field.maxStepSize)
-    console.log(randomY)
-    console.log(randomStepsSize)
-    if (randomY > 0 && randomStepsSize > 1) {
-        let step = []
-        for (let i = 0; i < randomStepsSize; i++) {
-            tableField[0][randomY + i].style.background = 'red'
-            stepsCoor.push([0, randomY + i])
-            step.push([tableField[0][randomY + i]])
-        }
-        steps.push(step)
-    } else {
-        creatSteps()
+    creatStep() {
+        let step = new Platforme
+        step.creatPlatforme()
+            // step.movePlatforme()
     }
 }
-creatSteps()
-console.log(steps)
-console.log(ground)
-console.log(stepsCoor)
 
-function startGame() {
-    groundFalls(ground)
-    stepsFalls(steps)
-        // creatSteps()
+class TheGame {
+    constructor() {
+
+    }
+    start() {
+        let field = new GameField(900, 500, 30, 30, 20, 20)
+        field.creat()
+        let steps = new Platforme()
+        steps.creatPlatforme()
+        steps.colorPlatforme(steps.platformeCoor, field.tableFieldTab)
+            // steps.movePlatforme()
+        console.log(steps.platformeCoor)
+    }
 }
 
-let groundInterval = setInterval(() => startGame(), 1000)
+let game = new TheGame
+game.start()
 
-// let char = tableField[]
 
-'1) создать игровое поле'
+
+
+
+
+
+// реализовать движение плит
+
+// '1) создать игровое поле'
 '2) создать персонажа'
 '3) реализовать прыжок'
 '4) добавить лесенки'
-
-// доделать функцю создания ступенек чтоб каждая супенька было в отдельном 
-// массиве.
