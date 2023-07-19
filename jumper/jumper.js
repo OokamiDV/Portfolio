@@ -55,33 +55,55 @@ class Platforme {
         this.minSize = minSize
         this.maxSize = maxSize
         this.platformeArr = []
+        this.timerArr = []
     }
 
     creatPlatforme() {
-        this.platformeArr.push([5, 5])
-        this.platformeArr.push([7, 7])
-        return this.platformeArr
+        this.platformeArr.push([
+            [5, 5],
+            [5, 6]
+        ])
+        this.platformeArr.push([
+            [8, 15],
+            [8, 16]
+        ])
+
+
     }
 
     get platformeCoor() {
         return this.platformeArr
     }
 
-    colorPlatforme(platformeArr, tableField) {
-        for (let i = 0; i < platformeArr.length; i++) {
-            for (let g = 0; g < platformeArr[i].length; g++) {
-                tableField[platformeArr[g][0]][platformeArr[g][1]].style.background = 'black'
+    colorPlatforme(platformeCoor, tableField) {
+        for (let i = 0; i < platformeCoor.length; i++) {
+            for (let g = 0; g < platformeCoor[i].length; g++) {
+                for (let j = 0; j < platformeCoor[i][g].length; j++) {
+                    tableField[platformeCoor[g][j][0] - 1][platformeCoor[g][j][1]].style.background = 'none'
+                    tableField[platformeCoor[i][g][0]][platformeCoor[i][g][1]].style.background = 'black'
+                }
+
             }
         }
     }
 
-    // movePlatforme(platformeArr, tableField) {
-    //     for (let i = 0; i < platformeArr.length; i++) {
-    //         for (let g = 0; g < platformeArr[i].length; g++) {
-    //             tableField[platformeArr[g][0]][platformeArr[g][1]].style.background = 'black'
-    //         }
-    //     }
-    // }
+    timeMove(platformeArr, target, platformeCoor, tableField, speed) {
+        let timer = setInterval(() => {
+            this.movePlatforme(platformeArr, target)
+            this.colorPlatforme(platformeCoor, tableField)
+        }, speed);
+        this.timerArr.push(timer)
+    }
+
+    movePlatforme(platformeArr, target) {
+        for (let i = 0; i < platformeArr.length; i++) {
+            if (platformeArr[i] == platformeArr[target]) {
+                for (let g = 0; g < platformeArr[i].length; g++) {
+                    platformeArr[i][g][0] = platformeArr[i][g][0] + 1
+                }
+            }
+        }
+    }
 }
 
 class Generator {
@@ -106,7 +128,10 @@ class TheGame {
         let steps = new Platforme()
         steps.creatPlatforme()
         steps.colorPlatforme(steps.platformeCoor, field.tableFieldTab)
-            // steps.movePlatforme()
+        steps.timeMove(steps.platformeArr, 0, steps.platformeCoor, field.tableFieldTab, 1000)
+        setTimeout(() => {
+            steps.timeMove(steps.platformeArr, 1, steps.platformeCoor, field.tableFieldTab, 200)
+        }, 500);
         console.log(steps.platformeCoor)
     }
 }
@@ -118,9 +143,10 @@ game.start()
 
 
 
-
-
+// в движение платформ можно поменять направление при помощи - и +
+//сделать чтоб плиты двигались независимо друг от друга
 // реализовать движение плит
+// создать массив с таймерами для движения, пушить туда
 
 // '1) создать игровое поле'
 '2) создать персонажа'
