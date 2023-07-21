@@ -58,37 +58,38 @@ class Platforme {
         this.timerArr = []
     }
 
-    creatPlatforme() {
-        this.platformeArr.push([
-            [5, 5],
-            [5, 6]
-        ])
-        this.platformeArr.push([
-            [8, 15],
-            [8, 16]
-        ])
-
-
-    }
-
     get platformeCoor() {
         return this.platformeArr
+    }
+
+    get timers() {
+        return this.timerArr
+    }
+
+    creatPlatforme(x, y, size) {
+        let plat = []
+        for (let i = 0; i < size; i++) {
+            plat[i] = [x, y]
+            y += 1
+        }
+        this.platformeArr.push(plat)
     }
 
     colorPlatforme(platformeCoor, tableField) {
         for (let i = 0; i < platformeCoor.length; i++) {
             for (let g = 0; g < platformeCoor[i].length; g++) {
                 for (let j = 0; j < platformeCoor[i][g].length; j++) {
-                    tableField[platformeCoor[g][j][0] - 1][platformeCoor[g][j][1]].style.background = 'none'
                     tableField[platformeCoor[i][g][0]][platformeCoor[i][g][1]].style.background = 'black'
+                    tableField[platformeCoor[i][g][0] - 1][platformeCoor[i][g][1]].style.background = 'none'
                 }
 
             }
         }
     }
 
-    timeMove(platformeArr, target, platformeCoor, tableField, speed) {
+    timeMove(platformeArr, target, platformeCoor, tableField, speed, maxSizeX, timerArr) {
         let timer = setInterval(() => {
+            this.stopPlatforme(platformeArr, maxSizeX, timerArr)
             this.movePlatforme(platformeArr, target)
             this.colorPlatforme(platformeCoor, tableField)
         }, speed);
@@ -101,6 +102,21 @@ class Platforme {
                 for (let g = 0; g < platformeArr[i].length; g++) {
                     platformeArr[i][g][0] = platformeArr[i][g][0] + 1
                 }
+            }
+
+        }
+
+    }
+
+
+    stopPlatforme(platformeArr, maxSizeX, timerArr) {
+        for (let i = 0; i < platformeArr.length; i++) {
+            for (let g = 0; g < platformeArr[i].length; g++) {
+                // if (platformeArr[i][g][0] >= maxSizeX) {
+                //     console.log(platformeArr[i][g])
+                //     platformeArr[i][g].splice(g, 1)
+                //     clearInterval(timerArr[g])
+                // }
             }
         }
     }
@@ -126,13 +142,14 @@ class TheGame {
         let field = new GameField(900, 500, 30, 30, 20, 20)
         field.creat()
         let steps = new Platforme()
-        steps.creatPlatforme()
-        steps.colorPlatforme(steps.platformeCoor, field.tableFieldTab)
-        steps.timeMove(steps.platformeArr, 0, steps.platformeCoor, field.tableFieldTab, 1000)
-        setTimeout(() => {
-            steps.timeMove(steps.platformeArr, 1, steps.platformeCoor, field.tableFieldTab, 200)
-        }, 500);
-        console.log(steps.platformeCoor)
+        steps.creatPlatforme(28, 0, 30)
+        steps.creatPlatforme(5, 7, 2)
+        steps.creatPlatforme(7, 15, 4)
+        steps.creatPlatforme(10, 2, 3)
+        steps.timeMove(steps.platformeArr, 1, steps.platformeCoor, field.tableFieldTab, 1000, field.amountCellX, steps.timers)
+        steps.timeMove(steps.platformeArr, 2, steps.platformeCoor, field.tableFieldTab, 200, field.amountCellX, steps.timers)
+        steps.timeMove(steps.platformeArr, 3, steps.platformeCoor, field.tableFieldTab, 1000, field.amountCellX, steps.timers)
+            // console.log(steps.platformeArr)
     }
 }
 
@@ -141,8 +158,7 @@ game.start()
 
 
 
-
-
+// реализовать удаление или остановку латформы
 // в движение платформ можно поменять направление при помощи - и +
 //сделать чтоб плиты двигались независимо друг от друга
 // реализовать движение плит
