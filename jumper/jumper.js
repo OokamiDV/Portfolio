@@ -89,9 +89,9 @@ class Platforme {
 
     timeMove(platformeArr, target, platformeCoor, tableField, speed, maxSizeX, timerArr) {
         let timer = setInterval(() => {
-            this.stopPlatforme(platformeArr, maxSizeX, timerArr)
             this.movePlatforme(platformeArr, target)
             this.colorPlatforme(platformeCoor, tableField)
+            this.stopPlatforme(platformeArr, maxSizeX, timerArr)
         }, speed);
         this.timerArr.push(timer)
     }
@@ -112,11 +112,9 @@ class Platforme {
     stopPlatforme(platformeArr, maxSizeX, timerArr) {
         for (let i = 0; i < platformeArr.length; i++) {
             for (let g = 0; g < platformeArr[i].length; g++) {
-                // if (platformeArr[i][g][0] >= maxSizeX) {
-                //     console.log(platformeArr[i][g])
-                //     platformeArr[i][g].splice(g, 1)
-                //     clearInterval(timerArr[g])
-                // }
+                if (platformeArr[i][g][0] >= maxSizeX) {
+                    clearInterval(timerArr[i])
+                }
             }
         }
     }
@@ -142,14 +140,12 @@ class TheGame {
         let field = new GameField(900, 500, 30, 30, 20, 20)
         field.creat()
         let steps = new Platforme()
-        steps.creatPlatforme(28, 0, 30)
         steps.creatPlatforme(5, 7, 2)
-        steps.creatPlatforme(7, 15, 4)
-        steps.creatPlatforme(10, 2, 3)
-        steps.timeMove(steps.platformeArr, 1, steps.platformeCoor, field.tableFieldTab, 1000, field.amountCellX, steps.timers)
-        steps.timeMove(steps.platformeArr, 2, steps.platformeCoor, field.tableFieldTab, 200, field.amountCellX, steps.timers)
-        steps.timeMove(steps.platformeArr, 3, steps.platformeCoor, field.tableFieldTab, 1000, field.amountCellX, steps.timers)
-            // console.log(steps.platformeArr)
+        steps.creatPlatforme(10, 13, 3)
+        steps.creatPlatforme(3, 8, 4)
+        steps.timeMove(steps.platformeArr, 0, steps.platformeCoor, field.tableFieldTab, 500, field.amountCellX, steps.timers)
+        steps.timeMove(steps.platformeArr, 1, steps.platformeCoor, field.tableFieldTab, 700, field.amountCellX, steps.timers)
+        steps.timeMove(steps.platformeArr, 2, steps.platformeCoor, field.tableFieldTab, 1000, field.amountCellX, steps.timers)
     }
 }
 
