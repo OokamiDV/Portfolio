@@ -121,17 +121,31 @@ class Platforme {
 }
 
 class Generator {
-    constructor() {
+    constructor(maxCellonField, x, platformeArr) {
+        this.maxCellonField = maxCellonField
+        this.platformeArr = platformeArr
+        this.x = x
 
     }
 
-    creatStep() {
-        let step = new Platforme
-        step.creatPlatforme()
-            // step.movePlatforme()
+    genRandom(needRandom, maxCellonField, maxSizePlat, x, platformeArr) {
+        for (let i = 0; i < needRandom; i++) {
+            let randomPair = []
+            let randomSize = Math.random()
+            randomSize = Math.floor(randomSize * maxSizePlat)
+            let randomSpawn = Math.random()
+            randomSpawn = Math.floor(randomSpawn * maxCellonField - randomSize)
+            if (randomSpawn > -1 && randomSize > 1) {
+                randomPair.push(x)
+                randomPair.push(randomSpawn)
+                randomPair.push(randomSize)
+                platformeArr.push(randomPair)
+            } else {
+                i -= 1
+            }
+        }
     }
 }
-
 class TheGame {
     constructor() {
 
@@ -140,12 +154,18 @@ class TheGame {
         let field = new GameField(900, 500, 30, 30, 20, 20)
         field.creat()
         let steps = new Platforme()
-        steps.creatPlatforme(5, 7, 2)
-        steps.creatPlatforme(10, 13, 3)
-        steps.creatPlatforme(3, 8, 4)
-        steps.timeMove(steps.platformeArr, 0, steps.platformeCoor, field.tableFieldTab, 500, field.amountCellX, steps.timers)
-        steps.timeMove(steps.platformeArr, 1, steps.platformeCoor, field.tableFieldTab, 700, field.amountCellX, steps.timers)
-        steps.timeMove(steps.platformeArr, 2, steps.platformeCoor, field.tableFieldTab, 1000, field.amountCellX, steps.timers)
+
+
+        // steps.creatPlatforme(5, 7, 2)
+        // steps.creatPlatforme(10, 13, 3)
+        // steps.creatPlatforme(3, 8, 4)
+        // steps.timeMove(steps.platformeArr, 0, steps.platformeCoor, field.tableFieldTab, 500, field.amountCellX, steps.timers)
+        // steps.timeMove(steps.platformeArr, 1, steps.platformeCoor, field.tableFieldTab, 700, field.amountCellX, steps.timers)
+        // steps.timeMove(steps.platformeArr, 2, steps.platformeCoor, field.tableFieldTab, 1000, field.amountCellX, steps.timers)
+
+        let gen = new Generator(30)
+        gen.genRandom(3, 30, 5, 0, steps.platformeArr)
+        console.log(gen.platformeArr)
     }
 }
 
@@ -154,11 +174,8 @@ game.start()
 
 
 
-// реализовать удаление или остановку латформы
+// сделать генератор для создания плит и движения
 // в движение платформ можно поменять направление при помощи - и +
-//сделать чтоб плиты двигались независимо друг от друга
-// реализовать движение плит
-// создать массив с таймерами для движения, пушить туда
 
 // '1) создать игровое поле'
 '2) создать персонажа'
